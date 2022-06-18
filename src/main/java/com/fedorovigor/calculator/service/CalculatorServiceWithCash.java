@@ -1,7 +1,7 @@
 package com.fedorovigor.calculator.service;
 
-import com.fedorovigor.calculator.dao.CalculatorCash;
-import com.fedorovigor.calculator.dao.CalculatorDao;
+import com.fedorovigor.calculator.repository.CalculatorCash;
+import com.fedorovigor.calculator.repository.CalculatorDao;
 import com.fedorovigor.calculator.model.dto.ExpressionDto;
 import com.fedorovigor.calculator.model.entity.ExpressionEntity;
 import com.fedorovigor.calculator.util.ExpressionCalculator;

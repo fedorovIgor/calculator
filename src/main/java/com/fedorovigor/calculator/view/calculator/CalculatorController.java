@@ -1,45 +1,49 @@
 package com.fedorovigor.calculator.view.calculator;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
 public class CalculatorController {
 
     private CalculatorViewModel calculatorViewModel;
+    private HistoryViewModel historyViewModel;
 
     @FXML
     private Label value;
     @FXML
     private Label result;
+//    @FXML
+//    private VBox historyVBox;
     @FXML
-    private VBox manePane;
-    private Node historyNode;
+    private VBox mainPane;
+    @FXML
+    private ListView<String> listView;
 
-
-    public void init(CalculatorViewModel calculatorViewModel, Node historyNode) {
+    public void init(CalculatorViewModel calculatorViewModel,
+                     HistoryViewModel historyViewModel) {
 
         this.calculatorViewModel = calculatorViewModel;
-        this.historyNode = historyNode;
+        this.historyViewModel = historyViewModel;
 
         value.textProperty().bindBidirectional(calculatorViewModel.valueProperty());
         result.textProperty().bindBidirectional(calculatorViewModel.resultProperty());
-
     }
 
     public CalculatorController() {}
 
     @FXML
     protected void showHistory(ActionEvent event) {
-        if (calculatorViewModel.isHistoryActive())
-            manePane.getChildren().remove(historyNode);
-        else manePane.getChildren().add(historyNode);
+        if (!historyViewModel.isHistoryActive())
+            mainPane.getChildren().remove(listView);
+        else mainPane.getChildren().add(listView);
 
-        calculatorViewModel.nextHistoryActiveState();
+        historyViewModel.nextHistoryActiveState();
     }
 
     @FXML
@@ -53,6 +57,9 @@ public class CalculatorController {
     @FXML
     protected void onEqualButton(ActionEvent event) {
         calculatorViewModel.calculateExpression();
+
+        historyViewModel.updateHistory();
+        listView = new ListView<String>(historyViewModel.expressionList());
     }
 
     @FXML

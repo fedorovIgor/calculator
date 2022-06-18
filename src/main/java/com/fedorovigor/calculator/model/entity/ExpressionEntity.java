@@ -3,6 +3,8 @@ package com.fedorovigor.calculator.model.entity;
 import java.time.LocalDateTime;
 
 public class ExpressionEntity {
+
+    private int id;
     private String expression;
     private Double result;
     private LocalDateTime time;
@@ -14,6 +16,14 @@ public class ExpressionEntity {
     }
 
     public ExpressionEntity() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getExpression() {
@@ -38,5 +48,14 @@ public class ExpressionEntity {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "ExpressionEntity{" +
+                "expression='" + expression + '\'' +
+                ", result=" + result +
+                ", time=" + time +
+                '}';
     }
 }

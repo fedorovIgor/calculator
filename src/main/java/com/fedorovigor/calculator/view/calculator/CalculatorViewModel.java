@@ -10,7 +10,6 @@ public class CalculatorViewModel {
 
     private final StringProperty value;
     private final StringProperty result;
-    private boolean historyActiveState;
 
     public CalculatorViewModel(CalculatorService service) {
         calculatorService = service;
@@ -28,7 +27,6 @@ public class CalculatorViewModel {
     }
 
 
-
     public void calculateExpression() {
         String expression = value.getValue();
         Double answer = calculatorService.calculateAndSave(expression);
@@ -38,8 +36,6 @@ public class CalculatorViewModel {
     }
 
     public void updateValue(String txt) {
-
-        System.out.println(value.getValue() );
 
         if (value.getValue().equals("0"))
             value.setValue("");
@@ -64,13 +60,6 @@ public class CalculatorViewModel {
 
     }
 
-    public boolean isHistoryActive() {
-        return historyActiveState;
-    }
 
-    public void nextHistoryActiveState() {
-        if (historyActiveState)
-            historyActiveState = false;
-        else historyActiveState = true;
-    }
+
 }

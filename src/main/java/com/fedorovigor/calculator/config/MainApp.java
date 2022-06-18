@@ -19,8 +19,6 @@ public class MainApp extends Application {
 
         Scene scene = new Scene((Parent)loader.load(FxmlFilesLoader.FileToLoad.CALCULATOR));
 
-
-
         stage.setTitle("I`m your calculator!");
         stage.setScene(scene);
         stage.show();

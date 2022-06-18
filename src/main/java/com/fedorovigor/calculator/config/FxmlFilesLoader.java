@@ -1,7 +1,6 @@
 package com.fedorovigor.calculator.config;
 
 import com.fedorovigor.calculator.view.calculator.CalculatorController;
-import com.fedorovigor.calculator.view.history.HistoryController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
@@ -15,8 +14,6 @@ public class FxmlFilesLoader {
     private final ViewModelFactory viewModelFactory;
 
     public enum FileToLoad {
-        HISTORY("/com/fedorovigor/calculator/history_view.fxml"),
-        SOME("/com/fedorovigor/calculator/some.fxml"),
         CALCULATOR("/com/fedorovigor/calculator/calculator_view.fxml");
 
         private String path;
@@ -38,11 +35,7 @@ public class FxmlFilesLoader {
         if (FileToLoad.CALCULATOR.equals(loadFile)) {
             var calculator = (CalculatorController)loader.getController();
             calculator.init(viewModelFactory.getCalculatorViewModel(),
-                    load(FileToLoad.HISTORY));
-        }
-        else if (FileToLoad.HISTORY.equals(loadFile)) {
-            var calculator = (HistoryController)loader.getController();
-            calculator.init(viewModelFactory.getHistoryViewModel());
+                    viewModelFactory.getHistoryViewModel());
         }
     }
 

@@ -2,23 +2,41 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fedorovigor.calculator.view.calculator.CalculatorController">
+<VBox fx:id="mainPane" alignment="CENTER" prefHeight="337.0" prefWidth="417.0" spacing="20.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fedorovigor.calculator.view.calculator.CalculatorController">
 
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <Label fx:id="value" text="0" />
-    <Label fx:id="result" text="0" />
-   <GridPane>
+   <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="500.0">
+      <children>
+         <VBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="592.0">
+            <children>
+                <Label fx:id="value" text="0">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+                <Label fx:id="result" text="0">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+   <GridPane prefHeight="179.0" prefWidth="405.0" minHeight="200" minWidth="200">
      <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,47 +48,190 @@
        <RowConstraints />
        <RowConstraints />
        <RowConstraints />
-         <RowConstraints />
-         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+         <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-            <Button onAction="#onCalculateButton" prefHeight="106.0" prefWidth="101.0" text="7" GridPane.rowIndex="5" />
-            <Button onAction="#onCalculateButton" prefHeight="133.0" prefWidth="107.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button onAction="#onCalculateButton" prefHeight="125.0" prefWidth="130.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Button onAction="#onCalculateButton" prefHeight="108.0" prefWidth="120.0" text="4" GridPane.rowIndex="6" />
-            <Button onAction="#onCalculateButton" prefHeight="125.0" prefWidth="112.0" text="1" GridPane.rowIndex="7" />
-            <Button onAction="#onCalculateButton" prefHeight="144.0" prefWidth="126.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button onAction="#onCalculateButton" prefHeight="41.0" prefWidth="141.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Button onAction="#onCalculateButton" prefHeight="130.0" prefWidth="120.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button onAction="#onCalculateButton" prefHeight="112.0" prefWidth="198.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-         <Button onAction="#onDelete" prefHeight="68.0" prefWidth="145.0" text="CE" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-           <Button onAction="#onCalculateButton" prefHeight="77.0" prefWidth="268.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="8" />
-         <Button onAction="#onCalculateButton" prefHeight="82.0" prefWidth="208.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="7" GridPane.rowIndex="5">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="4" GridPane.rowIndex="6">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="1" GridPane.rowIndex="7">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="6">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="7">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+         <Button contentDisplay="BOTTOM" onAction="#onDelete" prefHeight="1000.0" prefWidth="1000.0" stylesheets="@cssfilepath.css" text="CE" textFill="#801a1a" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+         </Button>
+           <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="8">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+         <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
       
-          <Button onAction="#onEqualButton" prefHeight="83.0" prefWidth="148.0" text="=" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-         <Button onAction="#onBackspace" prefHeight="93.0" prefWidth="181.0" text="←" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Button onAction="#onCalculateButton" prefHeight="83.0" prefWidth="116.0" text=")" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <Button onAction="#onCalculateButton" prefHeight="137.0" prefWidth="170.0" text="(" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <Button onAction="#onCalculateButton" prefHeight="156.0" prefWidth="259.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Button onAction="#onCalculateButton" prefHeight="130.0" prefWidth="147.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button onAction="#onCalculateButton" prefHeight="133.0" prefWidth="159.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button onAction="#onCalculateButton" prefHeight="102.0" prefWidth="139.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-         <Button onAction="#onCalculateButton" prefHeight="127.0" prefWidth="144.0" text="√" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button onAction="#onCalculateButton" prefHeight="130.0" prefWidth="120.0" text="^" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+          <Button onAction="#onEqualButton" prefHeight="1000.0" prefWidth="1000.0" text="=" textFill="#751405" GridPane.columnIndex="4" GridPane.rowIndex="8">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+         <Button onAction="#onBackspace" prefHeight="1000.0" prefWidth="1000.0" text="←" textFill="#751405" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text=")" textFill="#751405" GridPane.columnIndex="4" GridPane.rowIndex="7">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="(" textFill="#751405" GridPane.columnIndex="4" GridPane.rowIndex="6">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="+" textFill="#751405" GridPane.columnIndex="3" GridPane.rowIndex="7">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="-" textFill="#751405" GridPane.columnIndex="3" GridPane.rowIndex="6">
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin>
+            <font>
+               <Font size="16.0" />
+            </font></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="/" textFill="#751405" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="*" textFill="#751405" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+         <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="√" textFill="#751405" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+            <Button onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" text="^" textFill="#751405" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <GridPane.margin>
+               <Insets />
+            </GridPane.margin></Button>
+         <Button disable="true" onAction="#onCalculateButton" pickOnBounds="false" prefHeight="1000.0" prefWidth="1000.0" GridPane.rowIndex="4">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <cursor>
+               <Cursor fx:constant="DEFAULT" />
+            </cursor>
+         </Button>
+         <Button disable="true" onAction="#onCalculateButton" prefHeight="1000.0" prefWidth="1000.0" GridPane.columnIndex="3" GridPane.rowIndex="8">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
       </children>
    </GridPane>
-
-    <HBox>
-         <Button onAction="#onCalculateButton" text="+" />
-    </HBox>
     <Button onAction="#showHistory" text="history" />
 
 
-    <BorderPane fx:id="borderPane" layoutX="42.0" layoutY="78.0" prefHeight="200.0" prefWidth="200.0" />
+     <ListView fx:id="listView" prefHeight="200.0" prefWidth="200.0" />
+
 
     <stylesheets>
         <URL value="@cssfilepath.css" />

@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  db:
+    build: ./src/main/resources/com/fedorovigor/calculator/sql
+    container_name: postgres
+    ports:
+      - "5431:5432"
+    environment:
+      POSTGRES_USER: calculator_manager
+      POSTGRES_PASSWORD: calculator_manager
+      POSTGRES_DB: calculator

@@ -1,3 +1,13 @@
 .button {
--fx-background-color: gray;
+    -fx-background-color: #cdc4c4;
+    -fx-background-radius: 0;
+}
+
+.button:disabled {
+    -fx-background-color: #cdc4c4;
+    -fx-opacity: 1;
+}
+
+.button:pressed {
+    -fx-opacity: 0.7;
 }

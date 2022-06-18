@@ -1,4 +1,4 @@
-package com.fedorovigor.calculator.dao;
+package com.fedorovigor.calculator.repository;
 
 import com.fedorovigor.calculator.model.dto.ExpressionDto;
 
