@@ -2,20 +2,23 @@ package com.fedorovigor.calculator.model.dto;
 
 import com.fedorovigor.calculator.model.entity.ExpressionEntity;
 
+import java.time.LocalDateTime;
+
 public class ExpressionDto {
 
-    private final int id;
+
     private final String expression;
     private final Double result;
+    private final LocalDateTime saveTime;
 
-    public ExpressionDto(int id, String expression, Double result) {
-        this.id = id;
+    public ExpressionDto(String expression, Double result, LocalDateTime saveTime) {
+        this.saveTime = saveTime;
         this.expression = expression;
         this.result = result;
     }
 
     public ExpressionDto(ExpressionEntity entity) {
-        id = entity.getId();
+        saveTime = entity.getTime();
         expression = entity.getExpression();
         result = entity.getResult();
     }
@@ -28,7 +31,7 @@ public class ExpressionDto {
         return result;
     }
 
-    public  int getId() {
-        return id;
+    public LocalDateTime getSaveTime() {
+        return saveTime;
     }
 }

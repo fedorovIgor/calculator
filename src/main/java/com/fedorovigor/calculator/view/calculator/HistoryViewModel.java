@@ -36,7 +36,7 @@ public class HistoryViewModel {
 
     public void updateHistory() {
         var list = calculatorService.getLasTen().stream()
-                .sorted(Comparator.comparingInt(ExpressionDto::getId).reversed())
+                .sorted(Comparator.comparing(ExpressionDto::getSaveTime) .reversed())
                 .map(i -> i.getExpression() + " = " + i.getResult())
                 .collect(Collectors.toList());
 
