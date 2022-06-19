@@ -18,8 +18,6 @@ public class CalculatorController {
     private Label value;
     @FXML
     private Label result;
-//    @FXML
-//    private VBox historyVBox;
     @FXML
     private VBox mainPane;
     @FXML
@@ -30,6 +28,8 @@ public class CalculatorController {
 
         this.calculatorViewModel = calculatorViewModel;
         this.historyViewModel = historyViewModel;
+
+        listView.setItems(historyViewModel.expressionList());
 
         value.textProperty().bindBidirectional(calculatorViewModel.valueProperty());
         result.textProperty().bindBidirectional(calculatorViewModel.resultProperty());
@@ -59,7 +59,6 @@ public class CalculatorController {
         calculatorViewModel.calculateExpression();
 
         historyViewModel.updateHistory();
-        listView = new ListView<String>(historyViewModel.expressionList());
     }
 
     @FXML

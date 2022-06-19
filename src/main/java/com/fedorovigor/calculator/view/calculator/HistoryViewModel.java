@@ -21,7 +21,7 @@ public class HistoryViewModel {
     public HistoryViewModel(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
 
-        expressions = FXCollections.observableList(new ArrayList<>());
+        expressions = FXCollections.observableArrayList();
     }
 
     public void nextHistoryActiveState() {
