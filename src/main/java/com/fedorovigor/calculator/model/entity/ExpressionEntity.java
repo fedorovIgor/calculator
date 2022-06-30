@@ -1,15 +1,16 @@
 package com.fedorovigor.calculator.model.entity;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class ExpressionEntity {
 
     private int id;
     private String expression;
-    private Double result;
+    private BigDecimal result;
     private LocalDateTime time;
 
-    public ExpressionEntity(String expression, Double result, LocalDateTime time) {
+    public ExpressionEntity(String expression, BigDecimal result, LocalDateTime time) {
         this.expression = expression;
         this.result = result;
         this.time = time;
@@ -34,11 +35,11 @@ public class ExpressionEntity {
         this.expression = expression;
     }
 
-    public Double getResult() {
+    public BigDecimal getResult() {
         return result;
     }
 
-    public void setResult(Double result) {
+    public void setResult(BigDecimal result) {
         this.result = result;
     }
 

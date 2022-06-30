@@ -7,6 +7,7 @@ import com.fedorovigor.calculator.model.entity.ExpressionEntity;
 import com.fedorovigor.calculator.util.ExpressionCalculator;
 import com.fedorovigor.calculator.util.polish.PolishNotationCalculator;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,18 +16,18 @@ public class CalculatorServiceWithCash implements CalculatorService{
 
     private final CalculatorDao calculatorDao;
     private final CalculatorCash cash;
+    private final ExpressionCalculator expressionCalculator;
 
-    public CalculatorServiceWithCash(CalculatorDao calculatorDao, CalculatorCash cash) {
+    public CalculatorServiceWithCash(CalculatorDao calculatorDao, CalculatorCash cash, ExpressionCalculator expressionCalculator) {
         this.calculatorDao = calculatorDao;
         this.cash = cash;
+        this.expressionCalculator = expressionCalculator;
     }
 
     @Override
-    public Double calculateAndSave(String expr) {
+    public BigDecimal calculateAndSave(String expr) {
 
-        ExpressionCalculator calculator = new PolishNotationCalculator();
-
-        Double answer = calculator.calculate(expr);
+        BigDecimal answer = expressionCalculator.calculate(expr);
 
         ExpressionEntity entity =  new ExpressionEntity(
                 expr,

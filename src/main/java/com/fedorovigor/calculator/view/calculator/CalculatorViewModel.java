@@ -4,6 +4,8 @@ import com.fedorovigor.calculator.service.CalculatorService;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.math.BigDecimal;
+
 public class CalculatorViewModel {
 
     private final CalculatorService calculatorService;
@@ -29,7 +31,7 @@ public class CalculatorViewModel {
 
     public void calculateExpression() {
         String expression = value.getValue();
-        Double answer = calculatorService.calculateAndSave(expression);
+        BigDecimal answer = calculatorService.calculateAndSave(expression);
 
         value.setValue("0");
         result.setValue(answer.toString());
@@ -60,6 +62,11 @@ public class CalculatorViewModel {
 
     }
 
+    public void clearValueAndResult() {
+        value.setValue("0");
+        result.setValue("0");
+
+    }
 
 
 }

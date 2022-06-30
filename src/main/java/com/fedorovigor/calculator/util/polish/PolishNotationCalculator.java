@@ -4,12 +4,14 @@ import com.fedorovigor.calculator.util.ExpressionCalculator;
 import com.fedorovigor.calculator.util.polish.operator.FunctionOperatorToken;
 import com.fedorovigor.calculator.util.polish.operator.SimpleOperatorToken;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Stack;
 
 public class PolishNotationCalculator implements ExpressionCalculator {
 
     @Override
-    public Double calculate(String expression) {
+    public BigDecimal calculate(String expression) {
 
         PreparePolishNotation notation = new PreparePolishNotation();
 
@@ -18,7 +20,6 @@ public class PolishNotationCalculator implements ExpressionCalculator {
         var tokens = notation.parseToTokens(expression);
         var reversPolishNotation = notation.getReversePolishNotation(tokens);
 
-        System.out.println(reversPolishNotation);
 
         for (var i = reversPolishNotation.listIterator(); i.hasNext();) {
 
@@ -47,6 +48,8 @@ public class PolishNotationCalculator implements ExpressionCalculator {
             }
         }
 
-        return result.pop();
+
+
+        return new BigDecimal(result.pop()).setScale(4, RoundingMode.HALF_UP);
     }
 }

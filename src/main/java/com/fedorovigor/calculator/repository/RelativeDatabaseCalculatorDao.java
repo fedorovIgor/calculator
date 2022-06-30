@@ -22,7 +22,7 @@ public class RelativeDatabaseCalculatorDao implements CalculatorDao{
              PreparedStatement pst = con.prepareStatement( SAVE_SQL );
         ) {
             pst.setString(1, entity.getExpression());
-            pst.setDouble(2, entity.getResult());
+            pst.setBigDecimal(2, entity.getResult());
 
             pst.executeUpdate();
         }
@@ -54,7 +54,7 @@ public class RelativeDatabaseCalculatorDao implements CalculatorDao{
                 expression = new ExpressionEntity();
                 expression.setId(rs.getInt("id"));
                 expression.setExpression(rs.getString("expression"));
-                expression.setResult(rs.getDouble("answer"));
+                expression.setResult(rs.getBigDecimal("answer"));
 
                 result.add(expression);
             }

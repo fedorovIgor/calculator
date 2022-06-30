@@ -1,7 +1,9 @@
 package com.fedorovigor.calculator.util;
 
+import java.math.BigDecimal;
+
 public interface ExpressionCalculator {
 
-    Double calculate(String expression);
+    BigDecimal calculate(String expression);
 
 }

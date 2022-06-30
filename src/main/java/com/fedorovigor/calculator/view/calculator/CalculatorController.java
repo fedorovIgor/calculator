@@ -70,4 +70,7 @@ public class CalculatorController {
     protected void onDelete() {
         calculatorViewModel.clearValue();
     }
+
+    @FXML
+    protected void onDeleteAll() { calculatorViewModel.clearValueAndResult();}
 }
