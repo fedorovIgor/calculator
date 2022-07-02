@@ -22,9 +22,6 @@ public class DegreeOperator implements SimpleOperatorToken{
 
     @Override
     public String toString() {
-        return "DegreeOperator{" +
-                "precedence=" + precedence +
-                ", value=" + value +
-                '}';
+        return value.toString();
     }
 }

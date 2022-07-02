@@ -10,10 +10,10 @@ import java.util.Stack;
 
 public class PolishNotationCalculator implements ExpressionCalculator {
 
+    private final PreparePolishNotation notation = new PreparePolishNotation();
+
     @Override
     public BigDecimal calculate(String expression) {
-
-        PreparePolishNotation notation = new PreparePolishNotation();
 
         Stack<Double> result = new Stack<>();
 

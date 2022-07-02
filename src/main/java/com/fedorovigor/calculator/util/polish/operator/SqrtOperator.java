@@ -21,4 +21,9 @@ public class SqrtOperator  implements FunctionOperatorToken{
     public Integer getPrecedence() {
         return precedence;
     }
+
+    @Override
+    public String toString() {
+        return value.toString();
+    }
 }

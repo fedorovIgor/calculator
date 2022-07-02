@@ -8,14 +8,12 @@ public class OperandToken implements ExpressionToken {
     }
 
     @Override
-    public String toString() {
-        return "ValueToken{" +
-                "value=" + value +
-                '}';
+    public Double getValue() {
+        return value;
     }
 
     @Override
-    public Double getValue() {
-        return value;
+    public String toString() {
+        return value.toString();
     }
 }

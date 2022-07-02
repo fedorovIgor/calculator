@@ -12,11 +12,11 @@ public class PreparePolishNotation {
 
     private final TokensFactory tokensFactory = new TokensFactory();
 
-
     public List<ExpressionToken> getReversePolishNotation(List<ExpressionToken> tokens) {
 
         List<ExpressionToken> result = new ArrayList<>();
         Stack<OperatorToken> stack = new Stack<>();
+        OperatorToken operator;
 
         for (var i : tokens) {
             if (i instanceof OperandToken)
@@ -24,7 +24,7 @@ public class PreparePolishNotation {
 
             else if (i instanceof OperatorToken) {
 
-                OperatorToken operator = (OperatorToken) i;
+                operator = (OperatorToken) i;
 
                 if ('(' == operator.getValue())
                     stack.push(operator);
@@ -34,17 +34,21 @@ public class PreparePolishNotation {
                         result.add(j);
                 }
 
-                else if (stack.isEmpty()) 
-                    stack.push(operator);
-                    
-                else if (operator.getPrecedence() > stack.peek().getPrecedence())
+                else if (stack.isEmpty()
+                        || operator.getPrecedence() > stack.peek().getPrecedence())
                     stack.push(operator);
 
-                else if (operator.getPrecedence() <= stack.peek().getPrecedence()) {
-                    var top = stack.pop();
-                    result.add(top);
+
+                else {
+                    while (!stack.empty()
+                            && operator.getPrecedence() <= stack.peek().getPrecedence()) {
+                        var top = stack.pop();
+                        result.add(top);
+                    }
+
                     stack.push(operator);
                 }
+
             }
         }
 
@@ -67,14 +71,20 @@ public class PreparePolishNotation {
 
         List<ExpressionToken> tokens = new ArrayList<>();
 
-        if (operatorPattern.indexOf(str.charAt(0)) != -1 && str.charAt(0) != '-' && str.charAt(0) != '√')
+        if (operatorPattern.indexOf(str.charAt(0)) != -1
+                && str.charAt(0) != '-'
+                && str.charAt(0) != '√'
+                && str.charAt(0) != '(')
             throw new IllegalArgumentException("Can`t prepare this expression " + str);
+
+        StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < str.length(); i++) {
 
-            StringBuilder sb = new StringBuilder();
-
-            if (i == 0 && str.charAt(0) == '-' && str.length() > 1 && numberPattern.indexOf(str.charAt(1)) != -1) {
+            if (i == 0
+                    && str.charAt(0) == '-'
+                    && str.length() > 1
+                    && numberPattern.indexOf(str.charAt(1)) != -1) {
                 sb.append('-');
                 i++;
             }
@@ -84,8 +94,11 @@ public class PreparePolishNotation {
                 i++;
             }
 
-            if (!sb.isEmpty())
+            if (!sb.isEmpty()) {
                 tokens.add(tokensFactory.createToken(sb.toString()));
+                sb.setLength(0);
+            }
+
 
             if (i < str.length() && operatorPattern.indexOf(str.charAt(i)) != -1)
                 tokens.add(tokensFactory.createToken(String.valueOf(str.charAt(i))));

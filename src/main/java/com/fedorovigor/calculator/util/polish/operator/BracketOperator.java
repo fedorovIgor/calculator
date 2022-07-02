@@ -21,9 +21,6 @@ public class BracketOperator implements OperatorToken {
 
     @Override
     public String toString() {
-        return "BracketOperator{" +
-                "precedence=" + precedence +
-                ", value=" + value +
-                '}';
+        return value.toString();
     }
 }

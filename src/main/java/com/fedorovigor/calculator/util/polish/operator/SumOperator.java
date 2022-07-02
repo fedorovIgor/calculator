@@ -9,9 +9,7 @@ public class SumOperator implements SimpleOperatorToken {
 
     @Override
     public String toString() {
-        return "OperatorToken{" +
-                "value=" + value +
-                '}';
+        return value.toString();
     }
 
     @Override

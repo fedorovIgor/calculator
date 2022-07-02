@@ -24,9 +24,6 @@ public class MinusOperator implements SimpleOperatorToken {
 
     @Override
     public String toString() {
-        return "MinusOperator{" +
-                "precedence=" + precedence +
-                ", value=" + value +
-                '}';
+        return value.toString();
     }
 }

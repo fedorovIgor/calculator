@@ -24,9 +24,6 @@ public class MultiplyOperator implements SimpleOperatorToken {
 
     @Override
     public String toString() {
-        return "MultiplyOperator{" +
-                "precedence=" + precedence +
-                ", value=" + value +
-                '}';
+        return value.toString();
     }
 }
